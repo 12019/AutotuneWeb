@@ -146,7 +146,17 @@ namespace AutotuneWeb.Controllers
             using (var cmd = con.CreateCommand())
             {
                Console.WriteLine("did we get the strings?",ConfigurationManager.ConnectionStrings["Sql"].ConnectionString);
-               con.Open();
+               
+              try
+            {
+                  con.Open();          
+             }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(nameof(con), ex.Message);
+                return View("Index");
+            }
+              
 
                 cmd.Parameters.AddWithValue("@NSUrl", nsUrl.ToString());
                 cmd.Parameters.AddWithValue("@Profile", oapsProfile.Replace("\r\n", "\n"));
