@@ -145,11 +145,12 @@ namespace AutotuneWeb.Controllers
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["Sql"].ConnectionString))
             using (var cmd = con.CreateCommand())
             {
-               Console.WriteLine("did we get the strings? {0}",ConfigurationManager.ConnectionStrings["Sql"].ConnectionString);
+           
                
               try
             {
-                  con.Open();          
+                  con.Open();  
+                  //Console.WriteLine("did we get the strings? {0}",ConfigurationManager.ConnectionStrings["Sql"].ConnectionString);
              }
             catch (Exception ex)
             {
