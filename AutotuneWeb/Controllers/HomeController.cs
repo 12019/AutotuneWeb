@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Configuration.ConfigurationManager;
+using System.Configuration.AppSettings;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -145,7 +147,7 @@ namespace AutotuneWeb.Controllers
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["Sql"].ConnectionString))
             using (var cmd = con.CreateCommand())
             {
-               Console.WriteLine("did we get the strings?",ConfigurationManager.ConnectionStrings["Sql"].ConnectionString);
+               Console.WriteLine("did we get the strings? {0}",ConfigurationManager.ConnectionStrings["Sql"].ConnectionString);
                
               try
             {
